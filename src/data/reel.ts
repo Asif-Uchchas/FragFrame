@@ -9,6 +9,7 @@ import type { Chapter } from '@/lib/types';
  * seek by passing `?start=` seconds, derived from each chapter's `start`.
  */
 export const reel = {
+  year: '2026',
   kicker: '// reel 2026',
   runtime: '2:41',
   /** TODO: add the YouTube id once the reel master is uploaded. */

@@ -121,12 +121,25 @@ export function SectionHeader({
   );
 }
 
-/** Kicker followed by a rule that fades to nothing — used above the Work
- *  bands, the reel player and the chapter list. */
-export function BandHeading({ children }: { children: ReactNode }) {
+/**
+ * Kicker followed by a rule that fades to nothing — used above the Work bands,
+ * the reel player and the chapter list.
+ *
+ * `as` exists because on the Work index this kicker *is* the heading for its
+ * band. Rendered as a plain div it left the page jumping straight from the h1
+ * to the card h3s; as an h2 the outline is correct. Heading level and visual
+ * size are independent, so this stays a 10px mono label either way.
+ */
+export function BandHeading({
+  children,
+  as: Tag = 'div',
+}: {
+  children: ReactNode;
+  as?: 'div' | 'h2';
+}) {
   return (
     <div className={styles.band}>
-      <Kicker>{children}</Kicker>
+      <Tag className={styles.kicker}>{children}</Tag>
       <div className={styles.rule} aria-hidden="true" />
     </div>
   );

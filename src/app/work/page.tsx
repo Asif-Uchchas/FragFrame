@@ -74,7 +74,7 @@ export default async function WorkPage({
             className={`${styles.band} ${last ? styles.bandLast : ''}`}
             aria-label={band.heading}
           >
-            <BandHeading>{bandKicker(band.heading, items.length)}</BandHeading>
+            <BandHeading as="h2">{bandKicker(band.heading, items.length)}</BandHeading>
 
             <ProjectGrid variant={gridVariant[band.kind]}>
               {items.map((project, cardIndex) => (

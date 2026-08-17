@@ -17,6 +17,14 @@ export function generateStaticParams() {
   return caseStudies().map((project) => ({ slug: project.slug }));
 }
 
+/**
+ * The archive is a fixed list compiled into the build — there is no case study
+ * that can appear at runtime. Saying so means an unknown slug is a plain
+ * prerendered 404 with the real layout and copy, instead of the streamed error
+ * shell Next serves when it has to resolve the param on demand.
+ */
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const project = projectBySlug(slug);
@@ -37,8 +45,11 @@ export default async function CaseStudyPage({ params }: Params) {
   const { slug } = await params;
   const project = projectBySlug(slug);
 
-  // A project without case-study content has no page here, even though the
-  // slug exists in the archive.
+  // Unreachable in practice — `dynamicParams = false` means only the slugs
+  // from generateStaticParams ever reach this component, and those all have
+  // case-study content. Kept as the guard that narrows the type, and so a
+  // future change to generateStaticParams degrades to a 404 rather than a
+  // crash. Unmatched slugs are served the app-level not-found page.
   if (!project?.caseStudy) notFound();
 
   const study = project.caseStudy;

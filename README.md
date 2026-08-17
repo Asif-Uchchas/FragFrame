@@ -25,6 +25,9 @@ npm run dev
 | `npm run start` | Serve the production build |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
+| `npm test` | Vitest unit + component suite |
+| `npm run audit -- <url>` | Structural audit of a running site (headings, alt text, metadata, link integrity) |
+| `npm run optimise-images` | Re-encode oversized images in `public/assets` |
 
 ---
 

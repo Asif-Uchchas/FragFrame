@@ -22,6 +22,10 @@ export default function ReelPage() {
   return (
     <>
       <section className={styles.player}>
+        {/* The design gives this page no visible title — it opens straight on
+            the player. A page still needs one h1, so it is provided to
+            assistive tech and search engines without altering the layout. */}
+        <h1 className="visually-hidden">Showreel {reel.year}</h1>
         <BandHeading>
           {reel.kicker} · {reel.runtime}
         </BandHeading>
