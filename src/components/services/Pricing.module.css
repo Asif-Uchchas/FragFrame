@@ -1,0 +1,220 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 24px;
+  flex-wrap: wrap;
+  padding: 0 var(--gutter);
+  margin-bottom: 30px;
+}
+
+/* --- Segmented toggles (plan + currency) ----------------------------------- */
+
+.segments {
+  display: flex;
+  gap: 1px;
+  background: var(--rule-30);
+  width: fit-content;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.segment {
+  position: relative;
+  background: var(--bg);
+  color: var(--text-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  white-space: nowrap;
+  transition: color var(--ease-hover);
+}
+
+.segment:hover {
+  color: var(--red-link);
+}
+
+.segment[aria-pressed='true'] {
+  color: var(--text);
+}
+
+.marker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--red);
+  box-shadow: var(--glow-marker);
+}
+
+/* The currency switch is a quieter, smaller pair. */
+.currency .segment {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  padding: 12px 16px;
+}
+
+.currencyLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-label);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.currencyGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* --- Plan cards ------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--grid-gap);
+  align-items: start;
+  padding: 0 var(--gutter) 70px;
+}
+
+.card {
+  --notch: 18px;
+  position: relative;
+  padding: 30px 26px;
+  background: var(--bg);
+  border: 1px solid var(--border-card-alt);
+  transition: border-color var(--ease-hover);
+}
+
+.card:hover {
+  border-color: var(--red);
+}
+
+.featured {
+  background: var(--surface-featured);
+  border-color: rgba(255, 45, 61, 0.55);
+}
+
+.flag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 12px;
+  background: var(--red);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bg);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: var(--fs-price);
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+}
+
+/* When prices are hidden the placeholder is prose, not a number, so it needs a
+   smaller size or it wraps awkwardly in a 290px card. */
+.priceQuote {
+  font-size: clamp(19px, 2.4vw, 30px);
+}
+
+.unit {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-label);
+}
+
+.body {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.bullets {
+  margin-bottom: 24px;
+}
+
+/* --- Add-ons ----------------------------------------------------------------- */
+
+.addOns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--rule-25);
+  border: 1px solid var(--rule-25);
+}
+
+.addOn {
+  background: var(--bg-raised);
+  padding: 24px;
+}
+
+.addOnHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.addOnTitle {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.addOnPrice {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.addOnBody {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+}

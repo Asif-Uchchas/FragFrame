@@ -1,0 +1,37 @@
+.player {
+  position: relative;
+  padding: clamp(20px, 5vw, 40px) var(--gutter) 20px;
+}
+
+.marquee {
+  margin-top: 34px;
+}
+
+.cuts {
+  padding: 62px var(--gutter);
+}
+
+.cutsHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.cutsKicker {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.allWork {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--red-soft);
+  white-space: nowrap;
+}

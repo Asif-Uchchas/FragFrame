@@ -1,0 +1,180 @@
+/* ---------------------------------------------------------------------------
+   Hairline grids.
+
+   The pattern: the grid's own background is the accent tint, the cells are the
+   page ground, and a 1px gap lets the tint through as a rule. See the
+   `.hairline` utility in globals.css.
+   --------------------------------------------------------------------------- */
+
+/* --- Stat rows -------------------------------------------------------------
+   Fixed tracks, deliberately not auto-fit: at these narrow widths auto-fit
+   collapses the row to a single column. */
+
+.stats {
+  display: grid;
+  gap: 1px;
+  background: var(--rule-28);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.statsHero {
+  grid-template-columns: repeat(4, minmax(0, 140px));
+}
+
+.statsCompact {
+  grid-template-columns: repeat(3, minmax(0, 120px));
+}
+
+.statCell {
+  background: var(--bg);
+  padding: 16px 14px;
+}
+
+.statsCompact .statCell {
+  padding: 14px 13px;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.statsCompact .statValue {
+  font-size: 28px;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-link);
+}
+
+.statsCompact .statLabel {
+  letter-spacing: 0.16em;
+}
+
+/* Below ~430px four 140px tracks no longer fit; drop to two rows of two
+   rather than letting the row overflow the gutter. */
+@media (max-width: 430px) {
+  .statsHero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+}
+
+/* --- Step / timeline rows --------------------------------------------------- */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--rule-25);
+}
+
+.stepCell {
+  background: var(--bg);
+  padding: var(--step-padding, 26px 24px);
+}
+
+.roomy .stepCell {
+  --step-padding: 28px 24px;
+}
+
+.stepMarker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.roomy .stepMarker {
+  font-size: 11px;
+  margin-bottom: 14px;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.roomy .stepTitle {
+  font-size: 21px;
+}
+
+.stepBody {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Case-study fact strip -------------------------------------------------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1px;
+  background: var(--rule-28);
+}
+
+.factCell {
+  background: var(--bg);
+  padding: 20px 22px;
+}
+
+.factLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red-link);
+  margin-bottom: 8px;
+}
+
+.factValue {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* --- Case-study outcome row -------------------------------------------------- */
+
+.outcome {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1px;
+  background: var(--rule-25);
+}
+
+.outcomeCell {
+  background: var(--bg-raised);
+  padding: 30px 26px;
+}
+
+.outcomeValue {
+  font-family: var(--font-display);
+  font-size: var(--fs-stat-big);
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+}
+
+.outcomeLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 8px;
+}

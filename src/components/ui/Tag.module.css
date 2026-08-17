@@ -1,0 +1,93 @@
+/* --- Outlined tool tags ---------------------------------------------------- */
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--tag-padding, 8px 13px);
+  border: 1px solid var(--rule-tag);
+  color: var(--red-soft);
+  white-space: nowrap;
+}
+
+.roomy {
+  --tag-padding: 9px 14px;
+}
+
+/* --- Bullet lists ---------------------------------------------------------- */
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bullet-gap, 7px);
+  margin: 0;
+}
+
+.bullets li::marker {
+  content: '';
+}
+
+.bullet {
+  display: block;
+}
+
+.bullet::before {
+  content: '▸ ';
+  color: var(--red);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.prose {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-3);
+  --bullet-gap: 12px;
+}
+
+.assurance {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  --bullet-gap: 10px;
+}
+
+/* --- Availability badge ---------------------------------------------------- */
+
+.badge {
+  --notch: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  border: 1px solid var(--rule-glow);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  background: var(--red);
+  box-shadow: var(--glow-marker);
+  animation: redPulse var(--dur-pulse) ease-in-out infinite;
+}
+
+.badgeText {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red-soft);
+  white-space: nowrap;
+}

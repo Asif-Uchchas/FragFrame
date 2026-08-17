@@ -1,0 +1,36 @@
+.marquee {
+  position: relative;
+  display: flex;
+  padding: 13px 0;
+  border-top: 1px solid var(--rule-30);
+  border-bottom: 1px solid var(--rule-30);
+  background: var(--bg-raised);
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 40px;
+  padding-right: 40px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-ghost);
+  animation: tick var(--dur-marquee) linear infinite;
+}
+
+.star {
+  color: var(--red);
+}
+
+/* With motion reduced the strip would otherwise freeze mid-scroll, showing a
+   clipped title at each end. Reset it to the start and let it sit still. */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    transform: none;
+  }
+}

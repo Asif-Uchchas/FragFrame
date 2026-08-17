@@ -1,0 +1,27 @@
+.band {
+  position: relative;
+  padding: 78px var(--gutter);
+  overflow: hidden;
+  background: var(--contact-gradient);
+  border-top: 1px solid var(--rule-30);
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.copy {
+  max-width: 620px;
+}
+
+.body {
+  font-size: 17px;
+  color: var(--text-3);
+  margin: 20px 0 0;
+  max-width: 480px;
+}

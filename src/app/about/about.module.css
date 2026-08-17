@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 54px;
+  align-items: center;
+  padding: 74px var(--gutter) 66px;
+  overflow: hidden;
+}
+
+.portraitWrap {
+  position: relative;
+  flex: 1 1 300px;
+}
+
+.portraitOutline {
+  --notch: 18px;
+  position: absolute;
+  inset: -12px;
+  border: 1px solid var(--rule-portrait);
+  pointer-events: none;
+}
+
+.portrait {
+  --notch: 18px;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(0.55) contrast(1.1) brightness(0.9);
+}
+
+.copy {
+  position: relative;
+  flex: 1 1 440px;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-3);
+  max-width: 660px;
+  margin: 0 0 18px;
+}
+
+.paragraph {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 660px;
+  margin: 0 0 18px;
+}
+
+.paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* --- Sections --------------------------------------------------------------- */
+
+.section {
+  padding: 0 var(--gutter) 70px;
+}
+
+.sectionLast {
+  padding-bottom: 84px;
+}
+
+.sectionKicker {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sectionHeading {
+  margin-bottom: 30px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 44px;
+}
+
+.splitKicker {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.notesKicker {
+  display: block;
+  margin-bottom: 22px;
+}

@@ -1,0 +1,161 @@
+.panel {
+  --notch: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 28px 26px;
+  background: var(--panel-bg);
+  border: 1px solid var(--rule-strong);
+}
+
+.full {
+  --notch: 22px;
+  gap: 16px;
+  padding: 32px 30px;
+  background: var(--panel-bg-strong);
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red-link);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.full .field {
+  gap: 7px;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  /* Lifted from the prototype's #7d7d89: at 10px that value sits below a
+     comfortable contrast ratio on this ground. */
+  color: var(--text-label);
+}
+
+.input,
+.textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--border-input);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  transition: border-color var(--ease-hover);
+}
+
+.full .input,
+.full .textarea {
+  padding: 13px 14px;
+  font-size: 15px;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--red);
+  outline: none;
+}
+
+.input:focus-visible,
+.textarea:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.invalid {
+  border-color: var(--red);
+}
+
+.error {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--red-soft);
+}
+
+/* --- Job-type picker -------------------------------------------------------- */
+
+.picker {
+  display: flex;
+  gap: 1px;
+  background: var(--rule-30);
+  flex-wrap: wrap;
+}
+
+.pickerButton {
+  flex: 1;
+  min-width: 96px;
+  background: var(--bg);
+  color: var(--text-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 13px 10px;
+  white-space: nowrap;
+  transition: background var(--ease-hover), color var(--ease-hover);
+}
+
+.pickerButton:hover {
+  color: var(--red-link);
+}
+
+.pickerButton[aria-pressed='true'] {
+  background: var(--surface-active);
+  color: var(--text);
+}
+
+.helper {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Send --------------------------------------------------------------------
+   Two routes, side by side: the visitor picks the one they actually use. */
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+@media (max-width: 380px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--text-label);
+  margin: 0;
+}
+
+.sent {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--red-soft);
+  margin: 0;
+}

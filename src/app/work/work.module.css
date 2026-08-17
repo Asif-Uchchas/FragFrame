@@ -1,0 +1,49 @@
+.hero {
+  position: relative;
+  padding: 64px var(--gutter) 30px;
+  overflow: hidden;
+}
+
+.heroInner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.heroCopy {
+  max-width: 700px;
+}
+
+.kicker {
+  margin-bottom: 14px;
+}
+
+.heading {
+  margin-bottom: 28px;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 560px;
+}
+
+.band {
+  padding: 0 var(--gutter) 56px;
+}
+
+.bandLast {
+  padding-bottom: 72px;
+}
+
+.empty {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  padding: 0 var(--gutter) 72px;
+}

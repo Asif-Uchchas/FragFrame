@@ -1,0 +1,234 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px var(--gutter);
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+/* --- Brand ---------------------------------------------------------------- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand:hover {
+  color: var(--text);
+}
+
+.mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: var(--glow-mark);
+  /* The supplied logo is not in the Redline palette; the prototypes force it
+     with a hue rotation. Replace the source file with a graded original and
+     delete this filter. */
+  filter: hue-rotate(105deg) saturate(1.5);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.02;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.1em;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.role {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--red-link);
+}
+
+/* --- Desktop navigation --------------------------------------------------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+.link {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-dim);
+  white-space: nowrap;
+  transition: color var(--ease-hover);
+}
+
+.link:hover {
+  color: var(--red-link);
+}
+
+.link[aria-current='page'] {
+  color: var(--red);
+}
+
+.cta {
+  --notch: 10px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--bg);
+  background: var(--red);
+  padding: 11px 20px;
+  transition: background var(--ease-hover);
+}
+
+.cta:hover {
+  background: var(--red-hover);
+  color: var(--bg);
+}
+
+/* --- Mobile drawer --------------------------------------------------------
+   The prototypes had no mobile navigation — the nav simply wrapped, which
+   pushed the header to three lines on a phone. Below 600px the links collapse
+   into a drawer instead. */
+
+.toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-button);
+  color: var(--text);
+  --notch: 9px;
+}
+
+.toggle:hover {
+  border-color: var(--red);
+  color: var(--red-soft);
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 18px;
+}
+
+.bars span {
+  display: block;
+  height: 2px;
+  background: currentColor;
+  transition: transform var(--ease-hover), opacity var(--ease-hover);
+}
+
+.toggleOpen .bars span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.toggleOpen .bars span:nth-child(2) {
+  opacity: 0;
+}
+
+.toggleOpen .bars span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.scrim {
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  z-index: 39;
+  background: rgba(8, 8, 11, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.drawer {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  left: 0;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px var(--gutter) 22px;
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.drawerLink {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-3);
+  padding: 15px 2px;
+  border-bottom: 1px solid var(--rule-22);
+}
+
+.drawerLink:hover {
+  color: var(--red-link);
+}
+
+.drawerLink[aria-current='page'] {
+  color: var(--red);
+}
+
+.drawerCta {
+  --notch: 12px;
+  margin-top: 16px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--red);
+  padding: 15px 20px;
+}
+
+.drawerCta:hover {
+  background: var(--red-hover);
+  color: var(--bg);
+}
+
+@media (max-width: 599px) {
+  .nav {
+    display: none;
+  }
+
+  .toggle {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 600px) {
+  .drawer,
+  .scrim {
+    display: none;
+  }
+}

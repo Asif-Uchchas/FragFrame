@@ -1,0 +1,75 @@
+.button {
+  --notch: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--ease-hover), border-color var(--ease-hover), color var(--ease-hover);
+}
+
+/* --- Variants ------------------------------------------------------------- */
+
+.primary {
+  color: var(--bg);
+  background: var(--red);
+  border: 1px solid var(--red);
+}
+
+.primary:hover {
+  background: var(--red-hover);
+  border-color: var(--red-hover);
+  color: var(--bg);
+}
+
+.outline {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border-button);
+}
+
+.outline:hover {
+  border-color: var(--red);
+  color: var(--red-soft);
+}
+
+/* --- Sizes ---------------------------------------------------------------- */
+
+.sm {
+  --notch: 10px;
+  font-size: 13px;
+  padding: 14px 20px;
+}
+
+.md {
+  --notch: 11px;
+  font-size: 13px;
+  padding: 15px 26px;
+}
+
+.lg {
+  --notch: 12px;
+  font-size: 14px;
+  padding: 16px 28px;
+}
+
+.xl {
+  --notch: 12px;
+  font-size: 14px;
+  padding: 17px 30px;
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

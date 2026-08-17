@@ -1,0 +1,68 @@
+.hero {
+  position: relative;
+  padding: 64px var(--gutter) 44px;
+  overflow: hidden;
+}
+
+.heroInner {
+  position: relative;
+  max-width: 760px;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.heading {
+  margin-bottom: 28px;
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.section {
+  padding: 0 var(--gutter) 70px;
+}
+
+.sectionLast {
+  padding-bottom: 84px;
+}
+
+.sectionKicker {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sectionHeading {
+  margin-bottom: 26px;
+}
+
+/* --- FAQ ------------------------------------------------------------------- */
+
+.faq {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px 44px;
+  max-width: 1100px;
+}
+
+.question {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.answer {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+}

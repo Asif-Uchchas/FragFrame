@@ -1,0 +1,351 @@
+/* ===========================================================================
+   FragFrame — global token layer
+   ---------------------------------------------------------------------------
+   This file is the whole visual identity. To re-skin the template for another
+   client, you should only ever need to change values in the :root block below
+   plus the images in /public/assets. Nothing here is component-specific.
+
+   The design is a committed dark theme ("Redline") — there is no light mode,
+   so colors are defined once and never swapped on prefers-color-scheme.
+   =========================================================================== */
+
+:root {
+  /* --- Ground & surfaces ------------------------------------------------- */
+  --bg: #0b0b0f;             /* page ground */
+  --bg-raised: #101017;      /* alternating section bands, marquee strip */
+  --surface: #131319;        /* cards, quote blocks */
+  --surface-well: #08080b;   /* image wells behind media */
+  --surface-active: #1b1016; /* selected picker cell, contact route hover */
+  --surface-featured: #14090d; /* the "most booked" plan card */
+
+  /* --- Accent ------------------------------------------------------------ */
+  --red: #ff2d3d;         /* primary accent: fills, rules, active markers */
+  --red-hover: #ff5f6c;   /* hover on red-filled buttons */
+  --red-link: #ff4d5c;    /* links, mono kickers, nav hover */
+  --red-soft: #ff8b95;    /* secondary accent text, contact links, badges */
+
+  /* --- Text -------------------------------------------------------------- */
+  --text: #f2f2f5;        /* primary */
+  --text-2: #e6e6ec;      /* quote body */
+  --text-3: #cfcfd8;      /* lead paragraphs, spec lists */
+  --text-muted: #a9a9b4;  /* body copy */
+  --text-dim: #9b9ba6;    /* nav links at rest */
+  --text-faint: #7d7d89;  /* footer, field labels — 11px and up only */
+  --text-ghost: #6e6e7a;  /* marquee text */
+
+  /* Accessibility: --text-faint (#7d7d89) is uncomfortably low contrast below
+     11px. Anything smaller than that uses --text-label instead. See the
+     handoff README, "Not Solved Yet" item 6. */
+  --text-label: #9b9ba6;
+
+  /* --- Rules & borders ---------------------------------------------------
+     Deliberately alpha, not solid — they sit over varying grounds and the
+     translucency is what keeps the hairline grid feeling etched rather than
+     drawn. Do not substitute flat colors. */
+  --rule-strong: rgba(255, 45, 61, 0.35); /* header border, emphasized cards */
+  --rule-30: rgba(255, 45, 61, 0.3);
+  --rule-28: rgba(255, 45, 61, 0.28);
+  --rule-25: rgba(255, 45, 61, 0.25);
+  --rule-22: rgba(255, 45, 61, 0.22);
+  --rule-glow: rgba(255, 45, 61, 0.5); /* availability badge outline */
+  --rule-portrait: rgba(255, 45, 61, 0.45);
+  --rule-tag: rgba(255, 45, 61, 0.4);
+
+  --border-card: rgba(255, 255, 255, 0.07);
+  --border-card-alt: rgba(255, 255, 255, 0.08);
+  --border-input: rgba(242, 242, 245, 0.16);
+  --border-button: rgba(242, 242, 245, 0.24);
+
+  --header-bg: rgba(11, 11, 15, 0.88);
+  --pill-bg: rgba(11, 11, 15, 0.75);
+  --panel-bg: rgba(11, 11, 15, 0.82);
+  --panel-bg-strong: rgba(11, 11, 15, 0.86);
+  --route-bg: rgba(11, 11, 15, 0.6);
+
+  /* --- Signature grounds -------------------------------------------------- */
+  --contact-gradient: linear-gradient(135deg, #2a0810, #150409 60%, var(--bg));
+
+  /* --- Typography --------------------------------------------------------
+     The three families are injected as CSS variables by next/font in
+     layout.tsx: --font-display, --font-body, --font-mono. */
+  --font-display: var(--font-chakra), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  /* Display scale — always fluid, never fixed. */
+  --fs-h1-home: clamp(44px, 7.5vw, 96px);
+  --fs-h1-page: clamp(39px, 6.56vw, 84px);   /* Work, Services */
+  --fs-h1-person: clamp(36px, 6.09vw, 78px); /* About, Contact */
+  --fs-h1-case: clamp(38px, 6.41vw, 82px);
+  --fs-h2: clamp(26px, 4.38vw, 56px);
+  --fs-h2-about: clamp(27px, 4.53vw, 58px);
+  --fs-h2-sub: clamp(20px, 3.44vw, 44px);
+  --fs-h2-cta: clamp(24px, 4.06vw, 52px);
+  --fs-h2-brief: clamp(18px, 3.13vw, 40px);
+  --fs-h2-reel: clamp(21px, 3.59vw, 46px);
+  --fs-contact-display: clamp(31px, 5.31vw, 68px);
+  --fs-stat-big: clamp(21px, 3.59vw, 46px);
+  --fs-price: clamp(20px, 3.44vw, 44px);
+
+  /* --- Spacing ------------------------------------------------------------ */
+  --gutter: clamp(18px, 4.5vw, 36px);
+  --section-y: 88px;
+  --section-y-tail: 70px;
+  --section-y-contact: 100px;
+  --grid-gap: 18px;
+
+  /* Height of the sticky header, used to offset sticky children and
+     scroll-margin so anchor targets are not hidden underneath it. */
+  --header-h: 61px;
+
+  /* --- Elevation is glow, not shadow -------------------------------------- */
+  --glow-mark: 0 0 16px rgba(255, 45, 61, 0.6);
+  --glow-marker: 0 0 12px var(--red);
+  --glow-headline: 0 0 40px rgba(255, 45, 61, 0.7), 3px 0 0 rgba(255, 255, 255, 0.12);
+  --glow-headline-soft: 0 0 40px rgba(255, 45, 61, 0.6);
+  --glow-play: 0 0 50px rgba(255, 45, 61, 0.45);
+
+  /* --- Motion -------------------------------------------------------------
+     Durations are tokens so the reduced-motion block and any future tuning
+     have a single place to reach for. */
+  --dur-pulse: 1.6s;
+  --dur-glow: 4s;
+  --dur-marquee: 26s;
+  --ease-hover: 160ms ease;
+}
+
+/* ===========================================================================
+   Reset
+   =========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+a {
+  color: var(--red-link);
+}
+
+a:hover {
+  color: var(--red-soft);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Anchor targets must clear the sticky header. */
+:target {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+/* ===========================================================================
+   Focus — absent from the prototypes, required for keyboard use.
+   `:focus-visible` only, so pointer users never see a ring.
+   =========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* Clipped elements (chamfered buttons/cards) crop their own outline, so they
+   get a glow ring instead of an outline that would be invisible. */
+.chamfer:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px var(--red),
+    0 0 14px rgba(255, 45, 61, 0.55);
+}
+
+/* ===========================================================================
+   Shared shape utilities
+   ---------------------------------------------------------------------------
+   These are global rather than CSS-module classes because they are pure
+   geometry reused by ~40 elements across every page. Compose them alongside a
+   module class:  className={`chamfer ${styles.card}`}
+   =========================================================================== */
+
+/* The signature notched corner. No border-radius anywhere on containers — the
+   notch scales with the element, so callers set --notch:
+   9px badge · 10px nav button · 12px button · 16px card ·
+   18px feature card / portrait · 20px wide card / form panel */
+.chamfer {
+  --notch: 16px;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch)) 0,
+    100% var(--notch),
+    100% 100%,
+    var(--notch) 100%,
+    0 calc(100% - var(--notch))
+  );
+}
+
+/* Grids whose *background* is the accent tint and whose cells are the page
+   ground — the 1px gap is what draws the rules. Callers set --cols. */
+.hairline {
+  display: grid;
+  grid-template-columns: var(--cols, repeat(auto-fit, minmax(230px, 1fr)));
+  gap: 1px;
+  background: var(--rule-25);
+}
+
+.hairline > * {
+  background: var(--cell-bg, var(--bg));
+}
+
+/* Page horizontal gutter. */
+.gutter {
+  padding-inline: var(--gutter);
+}
+
+/* The three stacked texture layers behind heroes and CTA bands. */
+.texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Keyboard-only skip link. */
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--red);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  color: var(--bg);
+}
+
+/* ===========================================================================
+   Animations
+   =========================================================================== */
+
+@keyframes redPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes tick {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+/* Also absent from the prototypes and required. The marquee and the pulsing
+   glows are decorative, so they stop entirely rather than merely slowing. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

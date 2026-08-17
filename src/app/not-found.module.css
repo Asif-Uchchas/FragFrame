@@ -1,0 +1,35 @@
+.wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  padding: 96px var(--gutter);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  max-width: 640px;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.heading {
+  margin-bottom: 26px;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 32px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}

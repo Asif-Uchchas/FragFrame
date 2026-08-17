@@ -1,0 +1,255 @@
+/* --- Full-bleed hero ------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  height: clamp(520px, 64vw, 660px);
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.heroFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--bg) 4%,
+    rgba(11, 11, 15, 0.55) 45%,
+    rgba(11, 11, 15, 0.25)
+  );
+}
+
+.heroCopy {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 44px;
+}
+
+.back {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red-soft);
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+
+.heroKicker {
+  margin-bottom: 12px;
+}
+
+.heroHeading {
+  margin-bottom: 26px;
+  max-width: 900px;
+}
+
+.heroLead {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--text-3);
+  max-width: 620px;
+  margin: 0;
+}
+
+.facts {
+  margin: 0 var(--gutter);
+}
+
+/* --- Brief: sticky sidebar + body ------------------------------------------ */
+
+.brief {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 78px var(--gutter) 20px;
+  align-items: start;
+}
+
+.briefAside {
+  position: sticky;
+  top: calc(var(--header-h) + 29px);
+  flex: 1 1 240px;
+}
+
+.briefKicker {
+  margin-bottom: 14px;
+}
+
+.briefBody {
+  flex: 1 1 480px;
+}
+
+.briefLead {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--text-3);
+  margin: 0 0 20px;
+  max-width: 680px;
+}
+
+.briefText {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0 0 20px;
+  max-width: 680px;
+}
+
+.briefTools {
+  margin-top: 26px;
+}
+
+/* --- The build ------------------------------------------------------------- */
+
+.build {
+  padding: 60px var(--gutter) 20px;
+}
+
+.buildKicker {
+  margin-bottom: 26px;
+}
+
+.buildGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--grid-gap);
+}
+
+.buildCard {
+  --notch: 16px;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border-card);
+}
+
+.buildMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-well);
+  overflow: hidden;
+}
+
+.buildImage {
+  object-fit: cover;
+}
+
+.buildNumber {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 9px;
+  background: var(--red);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--bg);
+}
+
+.buildBody {
+  padding: 18px 18px 20px;
+  border-top: 1px solid var(--rule-28);
+}
+
+.buildTitle {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.buildText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Grade comparison -------------------------------------------------------
+   A 2px gap over the accent tint reads as a hairline divider between the two
+   frames. */
+
+.grade {
+  padding: 60px var(--gutter);
+}
+
+.gradeKicker {
+  margin-bottom: 8px;
+}
+
+.gradeHeading {
+  margin-bottom: 26px;
+}
+
+.gradeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2px;
+  background: var(--rule-30);
+}
+
+.gradePane {
+  position: relative;
+  background: var(--surface-well);
+  aspect-ratio: 16 / 9;
+}
+
+/* The two panes are the same source frame under two different grades — this is
+   the point being made, not a placeholder. */
+.gradeRaw {
+  object-fit: cover;
+  filter: saturate(0.45) contrast(0.82) brightness(1.06);
+}
+
+.gradeDelivered {
+  object-fit: cover;
+  filter: saturate(1.35) contrast(1.18) brightness(0.95);
+}
+
+.gradeLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 8px 14px;
+  background: rgba(11, 11, 15, 0.85);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-label);
+}
+
+.gradeLabelOn {
+  background: var(--red);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.gradeCaption {
+  font-size: 15px;
+  color: var(--text-label);
+  margin: 14px 0 0;
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+/* --- Outcome ---------------------------------------------------------------- */
+
+.outcome {
+  padding: 20px var(--gutter) 78px;
+}
+
+.outcomeKicker {
+  margin-bottom: 24px;
+}
+
+.outcomeQuote {
+  margin-top: 34px;
+}

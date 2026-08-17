@@ -1,0 +1,90 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 54px;
+  align-items: flex-start;
+  padding: 70px var(--gutter) 80px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2a0810, #150409 55%, var(--bg));
+}
+
+.copy {
+  position: relative;
+  flex: 1 1 420px;
+}
+
+.badge {
+  margin-bottom: 24px;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text-3);
+  max-width: 540px;
+  margin: 0 0 34px;
+}
+
+/* --- Contact routes --------------------------------------------------------- */
+
+.routes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--rule-28);
+  margin-bottom: 34px;
+}
+
+.route {
+  background: var(--route-bg);
+  padding: 20px 22px;
+  text-decoration: none;
+  display: block;
+  transition: background var(--ease-hover);
+}
+
+.route:hover {
+  background: var(--surface-active);
+}
+
+.routeLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red-link);
+  margin-bottom: 8px;
+}
+
+.routeValue {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.form {
+  position: relative;
+  flex: 1 1 320px;
+}
+
+/* --- Next steps -------------------------------------------------------------- */
+
+.next {
+  padding: 70px var(--gutter) 84px;
+}
+
+.nextKicker {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.nextHeading {
+  margin-bottom: 30px;
+}
