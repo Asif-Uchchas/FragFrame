@@ -69,14 +69,11 @@ export default function Header() {
     <>
       <header className={styles.header}>
         <Link href="/" className={styles.brand}>
-          <Image
-            src={site.avatar.src}
-            alt=""
-            width={36}
-            height={36}
-            className={styles.mark}
-            priority
-          />
+          {/* Deliberately not `priority`. Preloading a 36px icon wastes a
+              request and, because srcset serves the 2× variant on most
+              screens, the preloaded 1× file is never used. The LCP element is
+              the 460px hero mark, which is the one that carries priority. */}
+          <Image src={site.avatar.src} alt="" width={36} height={36} className={styles.mark} />
           <span className={styles.wordmark}>
             <span className={styles.name}>{site.wordmark}</span>
             <span className={styles.role}>{`// ${site.role}`}</span>
